@@ -1,13 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/js/header';
-import BodyComponent from './components/js/bodyComponent';
+import PrincipalContainer from './components/js/PrincipalContainer';
 
 function App() {
   return (
+    /* Criação do MainDiv (Div Principal para abrigar todos os componentes da Landin Page */
     <div className="MainDiv">
       <Header />
-      <BodyComponent />
+
+      {/* O PrincipalContainer é o responsável pela rolagem (scroll) e também pelo conteúdo da Landing Page */}
+      <PrincipalContainer />
     </div>
   );
 }

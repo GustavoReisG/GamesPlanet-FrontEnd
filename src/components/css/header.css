@@ -3,6 +3,11 @@ body {
     box-sizing: border-box;
 }
 
+#BodyDiv {
+    width: 100%;
+    height: 200%;
+}
+
 #header {
     position: fixed;
     height: 100px;
@@ -11,7 +16,7 @@ body {
     display: flex;
     justify-content:space-between;
     align-items: center;
-    color: wheat;
+    color: rgb(245, 222, 179);
     z-index: 999;
 }
 
@@ -29,7 +34,7 @@ body {
 
 .PCTypesContainerClass {
     margin-inline: 30px;
-    width: 95px;
+    width: 120px;
     height: 50px;
     font-size: 20px;
     justify-content: center;
@@ -42,13 +47,13 @@ body {
 #MercurySpan {
     transition: 0.2s;
     position: relative;
-    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-size: 24px;
     color: transparent;
     background-image: url('../imgs/MercuryLava.png');
     background-size: cover;
     background-clip: text;
     font-weight: 900;
-    text-shadow: 0 0 30px white;
+    text-shadow: 0 0 30px rgb(255, 255, 255);
 }
 
 #MercurySpan:hover {
@@ -59,13 +64,13 @@ body {
 #JupiterSpan {
     transition: 0.2s;
     position: relative;
-    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-size: 24px;
     color: transparent;
     background-image: url('../imgs/JupiterSuperficie.png');
     background-size: cover;
     background-clip: text;
     font-weight: 900;
-    text-shadow: 0 0 30px white;
+    text-shadow: 0 0 30px rgb(255, 255, 255);
 }
 
 #JupiterSpan:hover {
@@ -76,13 +81,13 @@ body {
 #NeptuneSpan {
     transition: 0.2s;
     position: relative;
-    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-size: 24px;
     color: transparent;
     background-image: url('../imgs/NetunoCongelado.png');
     background-size: cover;
     background-clip: text;
     font-weight: 900;
-    text-shadow: 0 0 30px white;
+    text-shadow: 0 0 30px rgb(255, 255, 255);
 }
 
 #NeptuneSpan:hover {
@@ -92,10 +97,10 @@ body {
 
 #SiteShopButtom {
     margin-right: 25px;
-    width: 70px;
+    width: 150px;
     height: 50px;
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 700;
     justify-content: center;
     align-items: center;
     border: 2px solid transparent;
@@ -107,11 +112,11 @@ body {
 #SiteShopButtom:hover {
     transition: 0.2s;
     position: relative;
-    font-size: 30px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-size: 30px;
     color: transparent;
     background-image: url('../imgs/GoldBuy.png');
     background-size: cover;
     background-clip: text;
     font-weight: 900;
-    text-shadow: 0 0 30px white;
+    text-shadow: 0 0 30px rgb(255, 255, 255);
 }
