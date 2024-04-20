@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import '../css/PrincipalContainer.css';
 
 // Container Principal, que guardará todas as informações da Landin Page
@@ -13,17 +13,45 @@ function PrincipalContainer() {
     useRef()
   ];
 
+  // Constante que se refere a div de movimentação de imagens da tela de apresentações.
+  const imagesPresentationDiv = useRef(null)
+
+  // Variável de estado, para chamar alterações na DOM sempre que alterada. Guarda a posição atual da DIV de imagens da tela de apresentações.
+  var [TranslateX, setTranslateX] = useState(0)
+
+  // Variável de estado, guarda o estilo a ser incrementado na div quando a variável TranslateX for alterada.
+  var [StyleImgDiv,SetStyleImgDiv] = useState({ transform: 'translateX('+TranslateX+'%)', transition: '1.5s'})
+
+  // Arrow Function para a função que mostra a próxima imagem (utiliza como verificador a variável TranslateX. Precisa ter valores alterados ao inserir mais imagens).
+  const NextImg = () => {
+    if (TranslateX - 25 >= (-75)) {
+
+      setTranslateX(TranslateX - 25)
+    } else {
+      setTranslateX(0)
+    }
+  }
+
+  // Arrow Function para a função que mostra a imagem anterior (utiliza como verificador a variável TranslateX. Precisa ter valores alterados ao inserir mais imagens).
+  const PrevImg = () => {
+    if (TranslateX + 25 <= 0) {
+
+      setTranslateX(TranslateX + 25)
+    } else {
+      setTranslateX(-75)
+    }
+  }
+
+  // Um useEffect que monitora a variável TranslateX. Caso seu valor seja alterado, irá atualizar a DOM e alterar a variável StyleImgDiv, migrando para a próxima imágem (ou anterior).
+  useEffect(() => {
+    SetStyleImgDiv({
+        transform: 'translateX(' + TranslateX + '%)',
+        transition: '1s'
+    });
+}, [TranslateX]);
+
   // Constante para atribuição da Div principal do PrincipalContainer, que possuí o scroll persolanizado.
   const divMain = useRef(null)
-
-  // Temporário, será excluido.
-  const scrollToSection = (index) => {
-    const section = sectionRefs[index].current;
-    divMain.current.scrollTo({
-      top: section.offsetTop,
-      behavior: 'smooth'
-    });
-  };
 
   // Cadastramento dos tipos de efeito, em geral, de scroll, wheel, touchstart e touchmove. Todos os efeitos são para a rolagem personalizada.
   useEffect(() => {
@@ -135,40 +163,57 @@ function PrincipalContainer() {
     <div id="Main" ref={divMain}>
       {/* Seção 1: Texto de apresentação */}
       <div ref={sectionRefs[0]} className="section">
-        <h1>Seção 1</h1>
-        <p>Texto de apresentação...</p>
-        <button onClick={() => scrollToSection(1)}>Próxima Seção</button>
+        <div class="sectionContainer" id="sectionPresentationContainer">
+          <div class="PresentationContainer" id="PresentationImages">
+            <div id="ImagesContainer">
+              <div ref={imagesPresentationDiv} id="ImagesContainerController" style={StyleImgDiv}>
+                <div class="PresentImagesFrame" id="PresentImagesFrame-1"></div>
+                <div class="PresentImagesFrame" id="PresentImagesFrame-2"></div>
+                <div class="PresentImagesFrame" id="PresentImagesFrame-3"></div>
+                <div class="PresentImagesFrame" id="PresentImagesFrame-4"></div>
+              </div>
+            </div>
+            <div id="ButtonsContainer">
+              <button class="ButtonImageAltern" id="ButtonPrevImage" onClick={PrevImg} >AL</button>
+              <button class="ButtonImageAltern" id="ButtonNextImage" onClick={NextImg} >AR</button>
+            </div>
+          </div>
+          <div class="PresentationContainer" id="PresentationText">
+            <h1>A GamesPlanet:</h1>
+            <h2>Na GamesPlanet, você adquire seu setup das galáxias para explorar o universo dos games.</h2>
+            <h3>Trabalhamos com o melhor do mundo do hardware e software. Computadores de última geração, montados por profissionais para profissionais.</h3>
+            <h3>Aqui, cada componente do seu setup dos sonhos é escolhido cuidadosamente pensando em desempenho, capacidade, temperatura e consumo.</h3>
+            <h3>Todos os nossos computadores contam com garantia de 3 anos, além da garantia do fabricante de cada componente e suporte para seu computador 24h por dia, 7 dias por semana.</h3>
+          </div>
+        </div>
       </div>
 
       {/* Seção 2: Mercury */}
       <div ref={sectionRefs[1]} className="section">
-        <h1>Seção 2</h1>
-        <p>Produto 1...</p>
-        <button onClick={() => scrollToSection(2)}>Próxima Seção</button>
-        <button onClick={() => scrollToSection(0)}>Seção Anterior</button>
+        <div class="sectionContainer" id="sectionMercuryContainer">
+
+        </div>
       </div>
 
       {/* Seção 3: Neptune */}
       <div ref={sectionRefs[2]} className="section">
-        <h1>Seção 3</h1>
-        <p>Produto 2...</p>
-        <button onClick={() => scrollToSection(3)}>Próxima Seção</button>
-        <button onClick={() => scrollToSection(1)}>Seção Anterior</button>
+        <div class="sectionContainer" id="sectionNeptuneContainer">
+
+        </div>
       </div>
 
       {/* Seção 4: Jupiter */}
       <div ref={sectionRefs[3]} className="section">
-        <h1>Seção 4</h1>
-        <p>Produto 3...</p>
-        <button onClick={() => scrollToSection(4)}>Próxima Seção</button>
-        <button onClick={() => scrollToSection(2)}>Seção Anterior</button>
+        <div class="sectionContainer" id="sectionJupiterContainer">
+
+        </div>
       </div>
 
-      {/* Seção 5: Footer */}
+      {/* Seção 5: Jupiter */}
       <div ref={sectionRefs[4]} className="section">
-        <h1>Footer</h1>
-        <p>Rodapé...</p>
-        <button onClick={() => scrollToSection(3)}>Seção Anterior</button>
+        <div id="Footer">
+
+        </div>
       </div>
     </div>
   );

@@ -2,17 +2,13 @@
     height: 100vh;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column-reverse;
+    justify-content: initial;
     align-items: center;
     background-color: #f0f0f0;
     border-bottom: 1px solid #ccc;
     z-index: 998;
     background-color: transparent;
-}
-  
-button {
-    margin-top: 20px;
 }
 
 #Main {
@@ -20,4 +16,145 @@ button {
     width: 100%;
     overflow: hidden;
 }
-  
+
+.sectionContainer {
+    background-color: rgba(211, 211, 211, 0.9);
+    width: 90vw;
+    height: 80vh;
+    margin-bottom: 5vh;
+}
+
+#sectionPresentationContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.PresentationContainer {
+    background-color: transparent;
+    width: 45vw;
+    height: 80%;
+}
+
+#PresentationImages {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#ImagesContainer {
+    width: 80%;
+    height: 60%;
+    position: relative;
+    top: -10px;
+    overflow: hidden;
+}
+
+#ImagesContainerController {
+    width: 400%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#PresentImagesFrame-1 {
+    background-image: url(../imgs/GPPicture1.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 25%;
+}
+
+#PresentImagesFrame-2 {
+    background-image: url(../imgs/GPPicture2.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 25%;
+}
+
+#PresentImagesFrame-3 {
+    background-image: url(../imgs/GPPicture3.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 25%;
+}
+
+#PresentImagesFrame-4 {
+    background-image: url(../imgs/GPPicture4.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 25%;
+}
+
+#ButtonsContainer {
+    width: 120px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 10px;
+}
+
+.ButtonImageAltern {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgb(122, 122, 122);
+    cursor: pointer;
+
+}
+
+.ButtonImageAltern:hover {
+    background-color: rgb(197, 197, 197);
+}
+
+.ButtonImageAltern:active {
+    background-color: rgb(122, 122, 122);
+    color: white;
+}
+
+#PresentationText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#PresentationText h1 {
+    color: black;
+    font-size: 40px;
+    margin-top: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#PresentationText h2 {
+    color: rgb(50, 50, 50);
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+
+
+#PresentationText h3 {
+    color: rgb(100, 100, 100);
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
